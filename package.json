@@ -1,0 +1,38 @@
+{
+  "name": "contracts.js",
+  "version": "1.0.0",
+  "description": "contracts.js",
+  "main": "contract.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "lint": "./node_modules/.bin/jshint src/ --reporter=./node_modules/jshint-full-path/index.js",
+    "pretest": "npm run-script lint",
+    "test": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test/ --require should",
+    "posttest": "./node_modules/.bin/istanbul check-coverage && rm -rf coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/christopherrolfe198/contracts.js.git"
+  },
+  "keywords": [
+    "contract",
+    "interface",
+    "binding",
+    "resolve"
+  ],
+  "author": "Christopher Rolfe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/christopherrolfe198/contracts.js/issues"
+  },
+  "homepage": "https://github.com/christopherrolfe198/contracts.js",
+  "devDependencies": {
+    "istanbul": "^0.3.2",
+    "jshint": "^2.5.8",
+    "jshint-full-path": "^1.1.1",
+    "mocha": "^2.0.1",
+    "should": "^4.1.0"
+  }
+}
