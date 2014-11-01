@@ -36,10 +36,7 @@ describe('contract', function () {
     it('should bind a contract to an instance', function() {
       TestContract.bind(Test);
 
-      global.contractRepository.should.have.property('contracts', {
-        'TestInterface' : { 'Test': 'Foo', 'bound' : function bound() {} },
-        'TestContract' : TestContract
-      });
+      global.contractRepository.contracts.TestContract.should.have.property('bound', Test);
     });
 
   });

@@ -1,5 +1,6 @@
 require('../src/contractRepository');
 var should = require('should');
+function bound() {}
 
 describe('contractRepository', function () {
 
@@ -16,9 +17,9 @@ describe('contractRepository', function () {
 
     it('should add a contract to the contracts property', function() {
 
-      global.contractRepository.add('TestInterface', { 'Test': 'Foo', 'bound' : function bound() {} });
+      global.contractRepository.add('TestInterface', { 'Test': 'Foo', 'bound' : bound });
 
-      global.contractRepository.should.have.property('contracts', { 'TestInterface' : { 'Test': 'Foo', 'bound' : function bound() {} } });
+      global.contractRepository.contracts.TestInterface.should.have.property('bound', bound);
 
     });
 
