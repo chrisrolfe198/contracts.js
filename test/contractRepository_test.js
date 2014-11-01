@@ -27,11 +27,21 @@ describe('contractRepository', function () {
 
   describe('resolve()', function() {
 
-    it('should return the function that is in the bound property', function() {
+    it('should return the contract', function() {
 
       var bound = global.contractRepository.resolve('TestInterface').bound;
 
       bound.should.be.a.Function
+
+    })
+
+    it('should throw an exception when there isn\'t a bound contract', function() {
+
+      try {
+        var notBound = global.contractRepository.resolve('FoobarInterface');
+      } catch (e) {
+        e.message.should.equal('UnboundException');
+      }
 
     })
 
