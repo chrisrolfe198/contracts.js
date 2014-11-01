@@ -4,7 +4,8 @@
   "description": "contracts.js",
   "main": "contract.js",
   "directories": {
-    "test": "test"
+    "test": "test",
+    "src": "src"
   },
   "scripts": {
     "lint": "./node_modules/.bin/jshint src/ --reporter=./node_modules/jshint-full-path/index.js",
