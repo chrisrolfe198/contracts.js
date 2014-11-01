@@ -1,14 +1,7 @@
 var Contract = require('../src/contract');
 var should = require('should');
-
-/* Set up */
-function Test() {
-}
-
-Test.prototype.testMethod = function(arg) {
-  this.args = arg;
-  console.log('TEST METHOD CALLED');
-}
+/* Loading in the test class */
+var Test = require('./seeds/TestClass.js');
 
 describe('contract', function () {
 
@@ -43,7 +36,10 @@ describe('contract', function () {
     it('should bind a contract to an instance', function() {
       TestContract.bind(Test);
 
-      global.contractRepository.should.have.property('contracts', { 'TestContract' : TestContract });
+      global.contractRepository.should.have.property('contracts', {
+        'TestContract' : TestContract,
+        'TestInterface' : { 'Test': 'Foo' }
+      });
     });
 
   });
