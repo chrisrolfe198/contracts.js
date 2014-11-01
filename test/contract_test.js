@@ -39,6 +39,17 @@ describe('contract', function () {
       global.contractRepository.contracts.TestContract.should.have.property('bound', Test);
     });
 
+    it('should check that the function has the correct methods', function() {
+      TestContract.addMethod('unimplemented', 'False');
+
+      try {
+        TestContract.bind(Test);
+      } catch (e) {
+        console.log(e.message);
+        e.message.should.equal('UnmetMethodException - functions: [unimplemented]');
+      }
+    })
+
   });
 
   describe('resolve()', function() {
