@@ -1,6 +1,15 @@
 var Contract = require('../src/contract');
 var should = require('should');
 
+/* Set up */
+function Test() {
+}
+
+Test.prototype.testMethod = function(arg) {
+  this.args = arg;
+  console.log('TEST METHOD CALLED');
+}
+
 describe('contract', function () {
 
   var TestContract = new Contract('TestContract');
@@ -28,5 +37,25 @@ describe('contract', function () {
     })
 
   });
+
+  describe('bind()', function() {
+
+    it('should bind a contract to an instance', function() {
+      TestContract.bind(Test);
+
+      global.contractRepository.should.have.property('contracts', { 'TestContract' : TestContract });
+    });
+
+  });
+
+  describe('resolve()', function() {
+
+    it('should resolve an instance of the class', function() {
+      var bound = TestContract.resolve();
+
+      bound.should.be.an.instanceof(Test);
+    });
+
+  })
 
 });

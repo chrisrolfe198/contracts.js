@@ -1,4 +1,4 @@
-var repository = require('./contractRepository');
+require('./contractRepository');
 
 function contract(name) {
 	this.name = name;
@@ -13,8 +13,13 @@ contract.prototype.addMethod = function(name, args) {
 	this.methods[name] = args;
 };
 
-contract.prototype.bind = function(name) {
-	repository.add(name, this);
+contract.prototype.bind = function(functionToBind) {
+	this.bound = functionToBind;
+	global.contractRepository.add(this.name, this);
+};
+
+contract.prototype.resolve = function() {
+	return new (global.contractRepository.resolve(this.name).bound)();
 };
 
 module.exports = contract;
