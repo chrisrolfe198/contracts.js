@@ -10,18 +10,29 @@ describe('contractRepository', function () {
       global.contractRepository.should.have.property('contracts');
 
     });
+  });
 
-    describe('add()', function() {
+  describe('add()', function() {
 
-      it('should add a contract to the contracts property', function() {
+    it('should add a contract to the contracts property', function() {
 
-        global.contractRepository.add('TestInterface', { 'Test': 'Foo' });
+      global.contractRepository.add('TestInterface', { 'Test': 'Foo', 'bound' : function bound() {} });
 
-        global.contractRepository.should.have.property('contracts', { 'TestInterface' : { 'Test': 'Foo' } });
-
-      });
+      global.contractRepository.should.have.property('contracts', { 'TestInterface' : { 'Test': 'Foo', 'bound' : function bound() {} } });
 
     });
+
+  });
+
+  describe('resolve()', function() {
+
+    it('should return the function that is in the bound property', function() {
+
+      var bound = global.contractRepository.resolve('TestInterface').bound;
+
+      bound.should.be.a.Function
+
+    })
 
   })
 

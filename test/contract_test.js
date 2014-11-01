@@ -37,8 +37,8 @@ describe('contract', function () {
       TestContract.bind(Test);
 
       global.contractRepository.should.have.property('contracts', {
-        'TestContract' : TestContract,
-        'TestInterface' : { 'Test': 'Foo' }
+        'TestInterface' : { 'Test': 'Foo', 'bound' : function bound() {} },
+        'TestContract' : TestContract
       });
     });
 
