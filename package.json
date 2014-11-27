@@ -2,7 +2,7 @@
   "name": "contracts.js",
   "version": "1.0.0",
   "description": "contracts.js",
-  "main": "contract.js",
+  "main": "src/contract.js",
   "directories": {
     "test": "test",
     "src": "src"
