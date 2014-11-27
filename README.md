@@ -5,6 +5,13 @@ contracts.js
 
 An interface style library for NodeJS
 
+## Installation
+
+You can install this via npm.
+```
+npm install contractsjs
+```
+
 ## Usage
 
 This library is meant to emulate the principles of interfaces in PHP by have methods and having a class that you can resolve that implements the interface.
