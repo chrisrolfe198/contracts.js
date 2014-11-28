@@ -2,6 +2,7 @@ contracts.js
 ============
 
 [![Build Status](https://travis-ci.org/christopherrolfe198/contracts.js.svg)](https://travis-ci.org/christopherrolfe198/contracts.js)
+![Dependencies Status](https://www.versioneye.com/user/projects/54785cec60944d7952000080/badge.svg)
 
 An interface style library for NodeJS
 
