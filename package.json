@@ -1,6 +1,6 @@
 {
-  "name": "contracts.js",
-  "version": "1.0.0",
+  "name": "contractsjs",
+  "version": "1.0.1",
   "description": "contracts.js",
   "main": "src/contract.js",
   "directories": {
