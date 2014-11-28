@@ -19,6 +19,8 @@ This library is meant to emulate the principles of interfaces in PHP by have met
 ### Creating an interface
 
 ```
+var Contract = require('contractsjs');
+
 var TestContract = new Contract('TestContract')
 ```
 
